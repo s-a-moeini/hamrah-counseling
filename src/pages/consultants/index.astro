@@ -31,7 +31,11 @@ const consultants = (await getCollection('consultants'))
                 <div class="consultant-image">
                   {consultant.data.image ? (
                     <img
-                      src={consultant.data.image}
+                      src={
+                        consultant.data.image?.startsWith('/')
+                          ? `${import.meta.env.BASE_URL}${consultant.data.image.slice(1)}`
+                          : consultant.data.image
+                      }
                       alt={consultant.data.name}
                       loading="lazy"
                     />

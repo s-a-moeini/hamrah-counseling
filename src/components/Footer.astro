@@ -1,15 +1,15 @@
-
 ---
 const currentYear = new Date().getFullYear();
+const base = import.meta.env.BASE_URL;
 
 const links = [
-  { title: 'صفحه اصلی', href: '/' },
-  { title: 'درباره مرکز', href: '/about' },
-  { title: 'خدمات مشاوره', href: '/services' },
-  { title: 'مشاوران', href: '/consultants' },
-  { title: 'مقالات و مطالب', href: '/articles' },
-  { title: 'دوره‌های آموزشی', href: '/courses' },
-  { title: 'تماس با ما', href: '/contact' },
+  { title: 'صفحه اصلی', href: `${base}#top` },
+  { title: 'درباره مرکز', href: `${base}#about` },
+  { title: 'خدمات مشاوره', href: `${base}#services` },
+  { title: 'مشاوران', href: `${base}consultants/` },
+  { title: 'مقالات و مطالب', href: `${base}articles/` },
+  { title: 'دوره‌های آموزشی', href: `${base}courses/` },
+  { title: 'تماس با ما', href: `${base}#contact` },
 ];
 ---
 
@@ -17,7 +17,7 @@ const links = [
   <div class="container">
     <div class="footer-main">
       <div class="footer-about">
-        <a href="/" class="footer-logo">
+        <a href={base} class="footer-logo">
           <span class="logo-icon">م</span>
           <span>
             <strong>مرکز مشاوره تخصصی همراه</strong>
@@ -60,7 +60,7 @@ const links = [
 
     <div class="footer-bottom">
       <p>© {currentYear} مرکز مشاوره تخصصی همراه. تمامی حقوق محفوظ است.</p>
-      <a href="#top">بازگشت به بالای صفحه ↑</a>
+      <a href={`${base}#top`}>بازگشت به بالای صفحه ↑</a>
     </div>
   </div>
 </footer>
