@@ -1,0 +1,253 @@
+
+---
+const categories = [
+  {
+    number: '01',
+    title: 'ازدواج و خانواده',
+    description: 'آموزش مهارت‌های زندگی مشترک، ارتباط مؤثر و بهبود روابط زوجین.',
+    courses: [
+      'آموزش تخصصی پیش از ازدواج',
+      'ارتقاء مهارت‌های زوجین و غنی‌سازی زندگی',
+      'مهارت‌های ارتباطی و جنسی زوجین',
+      'پیشگیری و درمان خیانت زناشویی',
+      'آموزش حقوق خانواده',
+      'فرزندپروری',
+    ],
+  },
+  {
+    number: '02',
+    title: 'تربیت درمانگر',
+    description: 'دوره‌های تخصصی برای آموزش و توانمندسازی فعالان حوزه روان‌شناسی.',
+    courses: [
+      'تربیت روان‌درمانگر',
+      'تربیت درمانگر خانواده و زوج‌درمانگر',
+      'تربیت درمانگر کودک و نوجوان',
+      'اصول مصاحبه بالینی',
+      'تشخیص بر اساس DSM',
+      'آسیب‌شناسی روانی',
+    ],
+  },
+  {
+    number: '03',
+    title: 'کودک و نوجوان',
+    description: 'آموزش تخصصی در زمینه رشد، تربیت و نیازهای روان‌شناختی کودکان.',
+    courses: [
+      'تربیت جنسی کودک و نوجوان',
+      'آموزش فرزندپروری',
+      'هوش‌افزایی و تقویت حافظه',
+      'افزایش توجه و تمرکز',
+    ],
+  },
+  {
+    number: '04',
+    title: 'آموزش‌های تخصصی',
+    description: 'توسعه مهارت‌های حرفه‌ای و شناختی در حوزه‌های مختلف.',
+    courses: [
+      'شخصیت‌شناسی',
+      'تحلیل آزمون‌های روان‌شناختی',
+      'مشاوره تحصیلی',
+      'مشاوره شغلی',
+      'کارورزی و سوپرویژن',
+      'توانمندسازی حرفه‌ای',
+    ],
+  },
+];
+---
+
+<section class="courses-section">
+  <div class="container">
+
+    <div class="section-heading">
+      <div>
+        <span class="section-label">آموزش و توانمندسازی</span>
+        <h2>یادگیری، مسیری برای رشد بیشتر</h2>
+        <p>
+          برگزاری دوره‌های آموزشی تخصصی و عمومی با هدف ارتقاء دانش
+          و مهارت‌های فردی و حرفه‌ای.
+        </p>
+      </div>
+
+      <a href="/courses" class="all-courses">
+        مشاهده همه دوره‌ها
+        <span>←</span>
+      </a>
+    </div>
+
+    <div class="courses-grid">
+      {categories.map((category) => (
+        <article class="course-card">
+          <div class="course-top">
+            <span class="course-number">{category.number}</span>
+            <span class="course-icon">✳</span>
+          </div>
+
+          <h3>{category.title}</h3>
+          <p>{category.description}</p>
+
+          <ul>
+            {category.courses.slice(0, 3).map((course) => (
+              <li>{course}</li>
+            ))}
+          </ul>
+
+          <a href="/courses" class="course-link">
+            مشاهده دوره‌ها
+            <span>←</span>
+          </a>
+        </article>
+      ))}
+    </div>
+
+  </div>
+</section>
+
+<style>
+  .courses-section {
+    padding: 100px 0;
+    background: #ffffff;
+  }
+
+  .section-heading {
+    display: flex;
+    align-items: end;
+    justify-content: space-between;
+    gap: 25px;
+    margin-bottom: 40px;
+  }
+
+  .section-label {
+    color: var(--color-primary);
+    font-size: 13px;
+    font-weight: 700;
+  }
+
+  .section-heading h2 {
+    margin: 14px 0 8px;
+    color: #203b38;
+    font-size: clamp(25px, 3vw, 35px);
+  }
+
+  .section-heading p {
+    color: #82918e;
+    font-size: 13px;
+    line-height: 2;
+  }
+
+  .all-courses {
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+    color: var(--color-primary);
+    font-size: 13px;
+    font-weight: 600;
+    white-space: nowrap;
+    padding-bottom: 10px;
+  }
+
+  .courses-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 20px;
+  }
+
+  .course-card {
+    padding: 28px;
+    border: 1px solid #e9efed;
+    border-radius: 16px;
+    transition: 0.25s;
+  }
+
+  .course-card:hover {
+    border-color: #b8dcd3;
+    transform: translateY(-3px);
+    box-shadow: 0 14px 35px rgba(39, 92, 80, 0.06);
+  }
+
+  .course-top {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .course-number {
+    color: #91aaa4;
+    font-size: 12px;
+    font-weight: 700;
+  }
+
+  .course-icon {
+    display: grid;
+    place-items: center;
+    width: 42px;
+    height: 42px;
+    border-radius: 12px;
+    background: #eaf4f1;
+    color: var(--color-primary);
+    font-size: 23px;
+  }
+
+  .course-card h3 {
+    margin: 20px 0 8px;
+    color: #29443f;
+    font-size: 18px;
+  }
+
+  .course-card > p {
+    margin: 0;
+    color: #82918e;
+    font-size: 12px;
+    line-height: 2.2;
+  }
+
+  .course-card ul {
+    list-style: none;
+    padding: 0;
+    margin: 20px 0;
+  }
+
+  .course-card li {
+    position: relative;
+    padding-right: 17px;
+    margin-bottom: 12px;
+    color: #536563;
+    font-size: 12px;
+  }
+
+  .course-card li::before {
+    content: '';
+    position: absolute;
+    right: 0;
+    top: 8px;
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: #85bdb0;
+  }
+
+  .course-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+    margin-top: 5px;
+    color: var(--color-primary);
+    font-size: 12px;
+    font-weight: 700;
+  }
+
+  @media (max-width: 850px) {
+    .courses-section {
+      padding: 70px 0;
+    }
+
+    .courses-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  @media (max-width: 520px) {
+    .section-heading {
+      align-items: start;
+      flex-direction: column;
+    }
+  }
+</style>

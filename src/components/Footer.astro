@@ -1,0 +1,202 @@
+
+---
+const currentYear = new Date().getFullYear();
+
+const links = [
+  { title: 'صفحه اصلی', href: '/' },
+  { title: 'درباره مرکز', href: '/about' },
+  { title: 'خدمات مشاوره', href: '/services' },
+  { title: 'مشاوران', href: '/consultants' },
+  { title: 'مقالات و مطالب', href: '/articles' },
+  { title: 'دوره‌های آموزشی', href: '/courses' },
+  { title: 'تماس با ما', href: '/contact' },
+];
+---
+
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-main">
+      <div class="footer-about">
+        <a href="/" class="footer-logo">
+          <span class="logo-icon">م</span>
+          <span>
+            <strong>مرکز مشاوره تخصصی همراه</strong>
+            <small>همراه شما در مسیر زندگی</small>
+          </span>
+        </a>
+
+        <p>
+          ارائه خدمات تخصصی مشاوره، روان‌شناسی و روان‌پزشکی
+          با هدف ارتقای سلامت روان و بهبود روابط فردی و خانوادگی.
+        </p>
+
+        <span class="supervision">
+          تحت نظارت اداره کل بهزیستی استان اصفهان
+        </span>
+      </div>
+
+      <div class="footer-links">
+        <h3>دسترسی سریع</h3>
+        <ul>
+          {links.map((link) => (
+            <li><a href={link.href}>{link.title}</a></li>
+          ))}
+        </ul>
+      </div>
+
+      <div class="footer-contact">
+        <h3>ارتباط با مرکز</h3>
+
+        <p>
+          اصفهان، خیابان بزرگمهر، خیابان هشت بهشت شرقی،
+          ساختمان سپاهان، طبقه ۳، واحد ۶
+        </p>
+
+        <a href="tel:03132677465" dir="ltr">۰۳۱-۳۲۶۷۷۴۶۵</a>
+        <a href="tel:03132677417" dir="ltr">۰۳۱-۳۲۶۷۷۴۱۷</a>
+        <a href="tel:09133395161" dir="ltr">۰۹۱۳۳۳۹۵۱۶۱</a>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <p>© {currentYear} مرکز مشاوره تخصصی همراه. تمامی حقوق محفوظ است.</p>
+      <a href="#top">بازگشت به بالای صفحه ↑</a>
+    </div>
+  </div>
+</footer>
+
+<style>
+  .site-footer {
+    padding: 65px 0 20px;
+    color: #e6f3f0;
+    background: #153c3a;
+  }
+
+  .footer-main {
+    display: grid;
+    grid-template-columns: 1.3fr 0.8fr 1fr;
+    gap: 45px;
+    padding-bottom: 45px;
+  }
+
+  .footer-logo {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+
+  .logo-icon {
+    width: 48px;
+    height: 48px;
+    display: grid;
+    place-items: center;
+    border-radius: 14px;
+    background: var(--color-primary);
+    color: white;
+    font-size: 22px;
+    font-weight: 800;
+  }
+
+  .footer-logo strong,
+  .footer-logo small {
+    display: block;
+  }
+
+  .footer-logo strong {
+    font-size: 17px;
+  }
+
+  .footer-logo small {
+    margin-top: 5px;
+    color: #a9c8c2;
+    font-size: 12px;
+  }
+
+  .footer-about p,
+  .footer-contact p {
+    color: #b8cfca;
+    font-size: 14px;
+    line-height: 2.2;
+  }
+
+  .supervision {
+    color: #a9c8c2;
+    font-size: 12px;
+  }
+
+  .site-footer h3 {
+    margin: 5px 0 20px;
+    color: white;
+    font-size: 17px;
+  }
+
+  .footer-links ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+
+  .footer-links li {
+    margin-bottom: 12px;
+  }
+
+  .footer-links a,
+  .footer-contact a {
+    color: #b8cfca;
+    font-size: 14px;
+    transition: color 0.2s;
+  }
+
+  .footer-links a:hover,
+  .footer-contact a:hover {
+    color: white;
+  }
+
+  .footer-contact a {
+    display: block;
+    width: fit-content;
+    margin-top: 12px;
+  }
+
+  .footer-bottom {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 20px;
+    padding-top: 20px;
+    border-top: 1px solid #ffffff20;
+  }
+
+  .footer-bottom p,
+  .footer-bottom a {
+    margin: 0;
+    color: #a9c8c2;
+    font-size: 12px;
+  }
+
+  @media (max-width: 800px) {
+    .footer-main {
+      grid-template-columns: 1fr 1fr;
+      gap: 35px;
+    }
+
+    .footer-about {
+      grid-column: 1 / -1;
+    }
+  }
+
+  @media (max-width: 500px) {
+    .footer-main {
+      grid-template-columns: 1fr;
+    }
+
+    .footer-about {
+      grid-column: auto;
+    }
+
+    .footer-bottom {
+      flex-direction: column;
+      align-items: flex-start;
+    }
+  }
+</style>

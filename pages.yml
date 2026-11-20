@@ -1,0 +1,57 @@
+
+media:
+  - name: consultants
+    label: تصاویر مشاوران
+    input: public/images/consultants
+    output: /images/consultants
+    extensions:
+      - jpg
+      - jpeg
+      - png
+      - webp
+
+content:
+  - name: consultants
+    label: مشاوران
+    type: collection
+    path: src/content/consultants
+    format: yaml-frontmatter
+    filename: "{primary}.md"
+    view:
+      primary: name
+      sort: sortOrder
+      order: asc
+    fields:
+      - name: name
+        label: نام و نام خانوادگی
+        type: string
+
+      - name: image
+        label: تصویر مشاور
+        type: image
+        options:
+          media: consultants
+
+      - name: title
+        label: عنوان تخصصی
+        type: string
+
+      - name: degree
+        label: مدرک تحصیلی
+        type: string
+
+      - name: specialties
+        label: حوزه‌های تخصص
+        type: text
+
+      - name: bio
+        label: معرفی کوتاه
+        type: text
+
+      - name: experience
+        label: سوابق و توضیحات کامل
+        type: text
+
+      - name: sortOrder
+        label: ترتیب نمایش
+        type: number

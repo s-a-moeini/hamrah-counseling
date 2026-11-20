@@ -1,0 +1,241 @@
+
+---
+import MainLayout from '../../layouts/MainLayout.astro';
+import { getCollection } from 'astro:content';
+
+const consultants = (await getCollection('consultants'))
+  .sort((a, b) => a.data.sortOrder - b.data.sortOrder);
+---
+
+<MainLayout
+  title="مشاوران | مرکز مشاوره تخصصی همراه"
+  description="آشنایی با مشاوران و متخصصان مرکز مشاوره تخصصی همراه"
+>
+  <main class="consultants-page">
+    <section class="page-intro">
+      <div class="container">
+        <span class="eyebrow">تیم تخصصی همراه</span>
+        <h1>مشاوران و متخصصان ما</h1>
+        <p>
+          آشنایی با متخصصان مرکز مشاوره تخصصی همراه و حوزه‌های فعالیت آن‌ها
+        </p>
+      </div>
+    </section>
+
+    <section class="consultants-section">
+      <div class="container">
+        {consultants.length > 0 ? (
+          <div class="consultants-grid">
+            {consultants.map((consultant) => (
+              <article class="consultant-card">
+                <div class="consultant-image">
+                  {consultant.data.image ? (
+                    <img
+                      src={consultant.data.image}
+                      alt={consultant.data.name}
+                      loading="lazy"
+                    />
+                  ) : (
+                    <div class="image-placeholder">
+                      {consultant.data.name.charAt(0)}
+                    </div>
+                  )}
+                </div>
+
+                <div class="consultant-content">
+                  <h2>{consultant.data.name}</h2>
+
+                  <span class="consultant-title">
+                    {consultant.data.title}
+                  </span>
+
+                  <p class="degree">
+                    {consultant.data.degree}
+                  </p>
+
+                  <div class="specialties">
+                    <strong>حوزه‌های تخصص:</strong>
+                    <p>{consultant.data.specialties}</p>
+                  </div>
+
+                  <p class="bio">{consultant.data.bio}</p>
+
+                  {consultant.data.experience && (
+                    <details>
+                      <summary>مشاهده سوابق و توضیحات بیشتر</summary>
+                      <p>{consultant.data.experience}</p>
+                    </details>
+                  )}
+                </div>
+              </article>
+            ))}
+          </div>
+        ) : (
+          <p class="empty-message">
+            در حال حاضر اطلاعاتی برای نمایش وجود ندارد.
+          </p>
+        )}
+      </div>
+    </section>
+  </main>
+</MainLayout>
+
+<style>
+  .consultants-page {
+    min-height: 70vh;
+  }
+
+  .page-intro {
+    padding: 75px 0;
+    text-align: center;
+    background: var(--color-background);
+  }
+
+  .eyebrow {
+    color: var(--color-primary);
+    font-size: 14px;
+    font-weight: 700;
+  }
+
+  .page-intro h1 {
+    margin: 14px 0;
+    font-size: 34px;
+  }
+
+  .page-intro p {
+    color: var(--color-muted);
+    line-height: 2;
+  }
+
+  .consultants-section {
+    padding: 65px 0 90px;
+  }
+
+  .consultants-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 25px;
+  }
+
+  .consultant-card {
+    overflow: hidden;
+    border: 1px solid #e5eeeb;
+    border-radius: 18px;
+    background: white;
+    transition: transform 0.2s, box-shadow 0.2s;
+  }
+
+  .consultant-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 12px 35px #153c3a12;
+  }
+
+  .consultant-image {
+    height: 230px;
+    overflow: hidden;
+    background: #e8f5f2;
+  }
+
+  .consultant-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .image-placeholder {
+    width: 100%;
+    height: 100%;
+    display: grid;
+    place-items: center;
+    color: var(--color-primary);
+    font-size: 75px;
+    font-weight: 700;
+  }
+
+  .consultant-content {
+    padding: 23px;
+  }
+
+  .consultant-content h2 {
+    margin: 0 0 8px;
+    font-size: 20px;
+  }
+
+  .consultant-title {
+    color: var(--color-primary);
+    font-size: 14px;
+    font-weight: 600;
+  }
+
+  .degree {
+    margin: 15px 0;
+    color: var(--color-muted);
+    font-size: 13px;
+  }
+
+  .specialties {
+    padding: 14px;
+    border-radius: 12px;
+    background: var(--color-background);
+    font-size: 13px;
+    line-height: 1.9;
+  }
+
+  .specialties strong {
+    color: var(--color-primary-dark);
+  }
+
+  .specialties p {
+    margin: 5px 0 0;
+  }
+
+  .bio {
+    color: var(--color-muted);
+    font-size: 13px;
+    line-height: 2;
+  }
+
+  details {
+    margin-top: 15px;
+    padding-top: 15px;
+    border-top: 1px solid #e5eeeb;
+    font-size: 13px;
+  }
+
+  summary {
+    color: var(--color-primary);
+    cursor: pointer;
+    font-weight: 600;
+  }
+
+  details p {
+    color: var(--color-muted);
+    line-height: 2;
+  }
+
+  .empty-message {
+    padding: 40px;
+    text-align: center;
+    color: var(--color-muted);
+  }
+
+  @media (max-width: 850px) {
+    .consultants-grid {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+  }
+
+  @media (max-width: 550px) {
+    .page-intro {
+      padding: 55px 0;
+    }
+
+    .page-intro h1 {
+      font-size: 27px;
+    }
+
+    .consultants-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>

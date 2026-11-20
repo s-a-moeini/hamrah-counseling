@@ -1,0 +1,355 @@
+
+<div id="top"></div>
+<section class="hero">
+  <div class="container hero-inner">
+
+    <div class="hero-content">
+      <span class="eyebrow">
+        <span class="eyebrow-dot"></span>
+       با مدیریت مرکز دکتر زهره اسماعیلیان
+      </span>
+
+      <h1>
+        مرکز مشاوره تخصصی همراه
+        <span>از خودتان شروع کنید.</span>
+      </h1>
+
+      <p class="hero-description">
+        در مسیر شناخت خود، بهبود روابط و عبور از چالش‌های زندگی،
+        همراه شما هستیم. اینجا فضایی برای شنیده شدن،
+        درک شدن و پیدا کردن راه‌های بهتر است.
+      </p>
+
+      <div class="hero-actions">
+        <a href="/services" class="primary-button">
+          آشنایی با خدمات
+          <span>←</span>
+        </a>
+
+        <a href="/about" class="secondary-button">
+          تماس با مرکز
+        </a>
+      </div>
+
+      <div class="hero-note">
+        <span class="note-icon">✓</span>
+        <span>قدم اول، شنیده شدن است.</span>
+      </div>
+    </div>
+
+    <div class="hero-visual">
+      <div class="visual-background"></div>
+
+      <div class="visual-card">
+        <div class="visual-symbol">✳</div>
+        <span>آرامش، از درون آغاز می‌شود</span>
+        <div class="visual-line"></div>
+        <small>مسیر رشد و شناخت خود</small>
+      </div>
+
+      <div class="floating-card">
+        <span class="floating-icon">♡</span>
+        <div>
+          <strong>اینجا برای شماست</strong>
+          <small>با آرامش قدم بردارید</small>
+        </div>
+      </div>
+
+      <div class="visual-decoration decoration-one"></div>
+      <div class="visual-decoration decoration-two"></div>
+    </div>
+
+  </div>
+</section>
+
+<style>
+  .hero {
+    overflow: hidden;
+    padding: 90px 0 100px;
+    background: #f7faf9;
+  }
+
+  .hero-inner {
+    display: grid;
+    grid-template-columns: 1fr 0.9fr;
+    align-items: center;
+    gap: 65px;
+  }
+
+  .hero-content {
+    max-width: 570px;
+  }
+
+  .eyebrow {
+    display: inline-flex;
+    align-items: center;
+    gap: 9px;
+    padding: 8px 13px;
+    color: var(--color-primary);
+    background: #e7f3f0;
+    border-radius: 30px;
+    font-size: 12px;
+    font-weight: 600;
+  }
+
+  .eyebrow-dot {
+    width: 7px;
+    height: 7px;
+    border-radius: 50%;
+    background: var(--color-primary);
+  }
+
+  .hero h1 {
+    margin: 27px 0 20px;
+    font-size: clamp(34px, 4vw, 51px);
+    line-height: 1.65;
+    font-weight: 800;
+    color: #203b38;
+  }
+
+  .hero h1 span {
+    display: block;
+    color: var(--color-primary);
+  }
+
+  .hero-description {
+    max-width: 500px;
+    color: #71817f;
+    font-size: 15px;
+    line-height: 2.3;
+  }
+
+  .hero-actions {
+    display: flex;
+    align-items: center;
+    gap: 13px;
+    margin-top: 30px;
+  }
+
+  .primary-button,
+  .secondary-button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 18px;
+    min-height: 49px;
+    padding: 0 22px;
+    border-radius: 10px;
+    font-size: 13px;
+    font-weight: 600;
+    transition: 0.2s;
+  }
+
+  .primary-button {
+    background: var(--color-primary);
+    color: white;
+  }
+
+  .primary-button:hover {
+    background: var(--color-primary-dark);
+    transform: translateY(-2px);
+  }
+
+  .secondary-button {
+    color: #45615d;
+    border: 1px solid #dce8e5;
+    background: white;
+  }
+
+  .secondary-button:hover {
+    border-color: var(--color-primary);
+    color: var(--color-primary);
+  }
+
+  .hero-note {
+    display: flex;
+    align-items: center;
+    gap: 9px;
+    margin-top: 35px;
+    color: #82918e;
+    font-size: 12px;
+  }
+
+  .note-icon {
+    display: grid;
+    place-items: center;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background: #dcefe9;
+    color: var(--color-primary);
+  }
+
+  .hero-visual {
+    position: relative;
+    min-height: 420px;
+    display: grid;
+    place-items: center;
+  }
+
+  .visual-background {
+    position: absolute;
+    width: min(100%, 390px);
+    aspect-ratio: 1;
+    border-radius: 48% 52% 45% 55%;
+    background: linear-gradient(145deg, #d8eee8, #b8dcd3);
+    transform: rotate(-8deg);
+  }
+
+  .visual-card {
+    position: relative;
+    z-index: 1;
+    width: 270px;
+    min-height: 300px;
+    padding: 38px 25px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 19px;
+    text-align: center;
+    border: 1px solid rgba(255,255,255,0.8);
+    border-radius: 22px;
+    background: rgba(255,255,255,0.78);
+    box-shadow: 0 25px 70px rgba(39, 92, 80, 0.12);
+    backdrop-filter: blur(12px);
+  }
+
+  .visual-symbol {
+    color: var(--color-primary);
+    font-size: 65px;
+    line-height: 1;
+  }
+
+  .visual-card span {
+    color: #365b54;
+    font-size: 17px;
+    font-weight: 700;
+  }
+
+  .visual-line {
+    width: 45px;
+    height: 2px;
+    background: #a8d1c5;
+  }
+
+  .visual-card small {
+    color: #82918e;
+    font-size: 12px;
+  }
+
+  .floating-card {
+    position: absolute;
+    z-index: 2;
+    bottom: 38px;
+    right: 0;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 15px 18px;
+    border-radius: 13px;
+    background: white;
+    box-shadow: 0 12px 35px rgba(39, 92, 80, 0.10);
+  }
+
+  .floating-icon {
+    display: grid;
+    place-items: center;
+    width: 38px;
+    height: 38px;
+    border-radius: 11px;
+    background: #e7f3f0;
+    color: var(--color-primary);
+    font-size: 22px;
+  }
+
+  .floating-card div {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+  }
+
+  .floating-card strong {
+    color: #365b54;
+    font-size: 12px;
+  }
+
+  .floating-card small {
+    color: #82918e;
+    font-size: 10px;
+  }
+
+  .visual-decoration {
+    position: absolute;
+    border: 1px solid rgba(15,118,110,0.2);
+    border-radius: 50%;
+  }
+
+  .decoration-one {
+    width: 65px;
+    height: 65px;
+    top: 25px;
+    left: 25px;
+  }
+
+  .decoration-two {
+    width: 28px;
+    height: 28px;
+    bottom: 35px;
+    left: 65px;
+    background: #a8d1c5;
+  }
+
+  @media (max-width: 850px) {
+    .hero {
+      padding: 65px 0 75px;
+    }
+
+    .hero-inner {
+      grid-template-columns: 1fr;
+      gap: 35px;
+    }
+
+    .hero-content {
+      max-width: 100%;
+    }
+
+    .hero-visual {
+      min-height: 350px;
+    }
+
+    .visual-background {
+      width: 310px;
+    }
+
+    .visual-card {
+      width: 235px;
+      min-height: 260px;
+    }
+
+    .floating-card {
+      right: 5%;
+      bottom: 10px;
+    }
+  }
+
+  @media (max-width: 480px) {
+    .hero h1 {
+      font-size: 33px;
+    }
+
+    .hero-description {
+      font-size: 13px;
+    }
+
+    .hero-actions {
+      flex-wrap: wrap;
+    }
+
+    .primary-button,
+    .secondary-button {
+      flex: 1;
+      padding: 0 13px;
+    }
+  }
+</style>

@@ -1,0 +1,237 @@
+
+<section class="about-section" id="about">
+  <div class="container about-grid">
+
+    <div class="about-visual">
+      <div class="about-shape">
+        <span class="about-symbol">همراه</span>
+        <span class="about-caption">مرکز مشاوره تخصصی</span>
+      </div>
+
+      <div class="about-badge">
+        <span>✳</span>
+        <div>
+          <strong>سلامت روان، اولویت ماست</strong>
+          <small>همراه شما در مسیر زندگی</small>
+        </div>
+      </div>
+    </div>
+
+    <div class="about-content">
+      <span class="section-label">درباره مرکز مشاوره همراه</span>
+
+      <h2>
+        فضایی برای شنیده شدن،
+        <span>شناخت و رشد</span>
+      </h2>
+
+      <p>
+        مرکز مشاوره تخصصی همراه با مدیریت دکتر زهره اسماعیلیان،
+        با هدف ارائه خدمات تخصصی روان‌شناختی، مشاوره‌ای و
+        آموزشی در کنار افراد و خانواده‌ها فعالیت می‌کند.
+      </p>
+
+      <p>
+        این مرکز در حوزه‌های مختلف از جمله مشاوره خانواده،
+        زوج‌درمانی، مشاوره فردی، کودک و نوجوان، مشاوره تحصیلی
+        و شغلی و خدمات روان‌پزشکی فعالیت دارد.
+      </p>
+
+      <div class="about-manager">
+        <div class="manager-avatar">ز</div>
+        <div>
+          <strong>دکتر زهره اسماعیلیان</strong>
+          <small>مدیریت مرکز مشاوره تخصصی همراه</small>
+        </div>
+      </div>
+
+      <div class="about-supervision">
+        <span>✓</span>
+        تحت نظارت اداره کل بهزیستی استان اصفهان
+      </div>
+
+      <a href="/about" class="about-link">
+        آشنایی بیشتر با مرکز
+        <span>←</span>
+      </a>
+    </div>
+
+  </div>
+</section>
+
+<style>
+  .about-section {
+    padding: 100px 0;
+    background: #f7faf9;
+  }
+
+  .about-grid {
+    display: grid;
+    grid-template-columns: 0.9fr 1.1fr;
+    align-items: center;
+    gap: 80px;
+  }
+
+  .about-visual {
+    position: relative;
+    min-height: 380px;
+    display: grid;
+    place-items: center;
+  }
+
+  .about-shape {
+    width: min(100%, 370px);
+    aspect-ratio: 1;
+    border-radius: 45% 55% 50% 50%;
+    background: linear-gradient(145deg, #cfe9e1, #a9d4c9);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    transform: rotate(-5deg);
+  }
+
+  .about-symbol {
+    color: #176f65;
+    font-size: 52px;
+    font-weight: 800;
+    transform: rotate(5deg);
+  }
+
+  .about-caption {
+    margin-top: 8px;
+    color: #477b70;
+    font-size: 13px;
+    transform: rotate(5deg);
+  }
+
+  .about-badge {
+    position: absolute;
+    bottom: 35px;
+    right: -10px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 16px;
+    border-radius: 13px;
+    background: white;
+    box-shadow: 0 12px 35px rgba(39, 92, 80, 0.10);
+  }
+
+  .about-badge > span {
+    display: grid;
+    place-items: center;
+    width: 40px;
+    height: 40px;
+    border-radius: 11px;
+    background: #e7f3f0;
+    color: var(--color-primary);
+    font-size: 22px;
+  }
+
+  .about-badge div,
+  .about-manager div:last-child {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+  }
+
+  .about-badge strong,
+  .about-manager strong {
+    color: #365b54;
+    font-size: 12px;
+  }
+
+  .about-badge small,
+  .about-manager small {
+    color: #82918e;
+    font-size: 11px;
+  }
+
+  .about-content h2 {
+    margin: 17px 0;
+    color: #203b38;
+    font-size: clamp(27px, 3vw, 37px);
+    line-height: 1.8;
+  }
+
+  .about-content h2 span {
+    color: var(--color-primary);
+  }
+
+  .about-content > p {
+    color: #71817f;
+    font-size: 13px;
+    line-height: 2.5;
+    margin: 12px 0;
+  }
+
+  .about-manager {
+    display: flex;
+    align-items: center;
+    gap: 13px;
+    margin-top: 25px;
+  }
+
+  .manager-avatar {
+    width: 48px;
+    height: 48px;
+    display: grid;
+    place-items: center;
+    border-radius: 50%;
+    background: #dcefe9;
+    color: var(--color-primary);
+    font-size: 21px;
+    font-weight: 700;
+  }
+
+  .about-supervision {
+    display: flex;
+    align-items: center;
+    gap: 9px;
+    margin-top: 20px;
+    color: #54736b;
+    font-size: 12px;
+  }
+
+  .about-supervision span {
+    color: var(--color-primary);
+    font-weight: 800;
+  }
+
+  .about-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+    margin-top: 25px;
+    color: var(--color-primary);
+    font-size: 13px;
+    font-weight: 700;
+  }
+
+  @media (max-width: 850px) {
+    .about-section {
+      padding: 70px 0;
+    }
+
+    .about-grid {
+      grid-template-columns: 1fr;
+      gap: 40px;
+    }
+
+    .about-visual {
+      min-height: 320px;
+    }
+
+    .about-shape {
+      width: 300px;
+    }
+  }
+
+  @media (max-width: 480px) {
+    .about-badge {
+      right: 0;
+      bottom: 10px;
+    }
+  }
+</style>
