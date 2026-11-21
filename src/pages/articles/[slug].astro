@@ -32,7 +32,7 @@ const getImageUrl = (image?: string) => {
 >
   <main class="article-page">
     <article class="article-container">
-      <a class="back-link" href={`${base}articles/`}>
+      <a class="back-link" href={`${base.replace(/\/?$/, '/')}articles/`}>
         ← بازگشت به مقالات
       </a>
 
