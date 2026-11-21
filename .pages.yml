@@ -10,6 +10,16 @@ media:
       - png
       - webp
 
+  - name: courses
+    label: تصاویر دوره‌ها
+    input: public/images/courses
+    output: /images/courses
+    extensions:
+      - jpg
+      - jpeg
+      - png
+      - webp
+
 content:
   - name: consultants
     label: مشاوران
@@ -52,6 +62,58 @@ content:
         label: سوابق و توضیحات کامل
         type: text
 
+      - name: sortOrder
+        label: ترتیب نمایش
+        type: number
+
+
+
+  - name: courses
+    label: دوره‌ها
+    type: collection
+    path: src/content/courses
+    format: yaml-frontmatter
+    filename: "{primary}.md"
+    view:
+      primary: name
+      sort: sortOrder
+      order: asc
+    fields:
+      - name: name
+        label: نام دوره
+        type: string
+      - name: image
+        label: تصویر دوره
+        type: image
+        options:
+          media: courses
+      - name: instructor
+        label: نام مدرس
+        type: string
+      - name: instructorBio
+        label: توضیحات مدرس
+        type: text
+      - name: topics
+        label: سرفصل‌ها
+        type: text
+      - name: location
+        label: مکان برگزاری
+        type: string
+      - name: schedule
+        label: تاریخ برگزاری
+        type: text
+      - name: duration
+        label: مدت برگزاری
+        type: string
+      - name: description
+        label: توضیحات دوره
+        type: text
+      - name: cost
+        label: هزینه
+        type: string
+      - name: registration
+        label: نحوه ثبت‌نام
+        type: text
       - name: sortOrder
         label: ترتیب نمایش
         type: number
