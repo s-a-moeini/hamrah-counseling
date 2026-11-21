@@ -1,5 +1,6 @@
 ---
 name: اکبر احمدی
+image: /images/consultants/Gemini_Generated_Image_7svfjk7svfjk7svf.jpg
 title: روان‌شناس و مشاور پیش از ازدواج
 degree: کارشناسی ارشد روان‌شناسی عمومی
 specialties: مشاوره پیش از ازدواج، خودشناسی، انتخاب همسر
