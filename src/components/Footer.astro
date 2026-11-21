@@ -6,9 +6,9 @@ const links = [
   { title: 'صفحه اصلی', href: `${base}#top` },
   { title: 'درباره مرکز', href: `${base}#about` },
   { title: 'خدمات مشاوره', href: `${base}#services` },
-  { title: 'مشاوران', href: `${base}consultants/` },
-  { title: 'مقالات و مطالب', href: `${base}articles/` },
-  { title: 'دوره‌های آموزشی', href: `${base}courses/` },
+  { title: 'مشاوران', href: `${base}/consultants/` },
+  { title: 'مقالات و مطالب', href: `${base}/articles/` },
+  { title: 'دوره‌های آموزشی', href: `${base}/courses/` },
   { title: 'تماس با ما', href: `${base}#contact` },
 ];
 ---
@@ -18,8 +18,12 @@ const links = [
     <div class="footer-main">
       <div class="footer-about">
         <a href={base} class="footer-logo">
-          <span class="logo-icon">م</span>
-          <span>
+          <img
+            src={`${base}/images/logo/logo.webp`}
+            alt="لوگوی مرکز مشاوره تخصصی همراه"
+            class="logo-image"
+          />
+          <span class="footer-logo-text">
             <strong>مرکز مشاوره تخصصی همراه</strong>
             <small>همراه شما در مسیر زندگی</small>
           </span>
@@ -85,7 +89,7 @@ const links = [
     gap: 12px;
   }
 
-  .logo-icon {
+  /*.logo-icon {
     width: 48px;
     height: 48px;
     display: grid;
@@ -95,18 +99,26 @@ const links = [
     color: white;
     font-size: 22px;
     font-weight: 800;
+  }*/
+
+  .logo-image {
+    width: 52px;
+    height: 52px;
+    object-fit: contain;
+    flex-shrink: 0;
   }
 
-  .footer-logo strong,
-  .footer-logo small {
+  .footer-logo-text strong,
+  .footer-logo-text small {
     display: block;
   }
 
-  .footer-logo strong {
+  .footer-logo-text strong {
     font-size: 17px;
+    white-space: nowrap;
   }
 
-  .footer-logo small {
+  .footer-logo-text small {
     margin-top: 5px;
     color: #a9c8c2;
     font-size: 12px;

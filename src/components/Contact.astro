@@ -1,9 +1,17 @@
-
 ---
+
+const base = import.meta.env.BASE_URL;
+
+//const phones = [
+// '03132677465',
+//  '03132677417',
+//  '09133395161',
+//];
+
 const phones = [
-  '03132677465',
-  '03132677417',
-  '09133395161',
+  '۰۳۱۳۲۶۷۷۴۶۵',
+  '۰۳۱۳۲۶۷۷۴۱۷',
+  '۰۹۱۳۳۳۹۵۱۶۱',
 ];
 ---
 
@@ -57,7 +65,12 @@ const phones = [
 
       <div class="contact-visual">
         <div class="visual-content">
-          <span class="visual-icon">✦</span>
+          <!--<span class="visual-icon">✦</span>-->
+          <img
+            src={`${base}/images/logo/logo.webp`}
+            alt="لوگوی مرکز مشاوره تخصصی همراه"
+            class="contact-logo-image"
+          />
           <h3>مرکز مشاوره تخصصی همراه</h3>
           <p>همراه شما در مسیر آرامش و رشد</p>
           <div class="visual-line"></div>
@@ -202,6 +215,16 @@ const phones = [
     border: 1px solid #ffffff55;
     border-radius: 20px;
     font-size: 30px;
+  }
+
+   .contact-logo-image {
+    width: 100px;
+    height: 100px;
+    object-fit: contain;
+    flex-shrink: 0;
+
+    display: inline-grid;
+    place-items: center;
   }
 
   .visual-content h3 {

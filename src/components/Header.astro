@@ -16,9 +16,13 @@ const menuItems = [
   <div class="container header-inner">
 
     <a href={base} class="logo">
-      <span class="logo-icon">م</span>
+      <img
+        src={`${base}/images/logo/logo.webp`}
+        alt="لوگوی مرکز مشاوره تخصصی همراه"
+        class="logo-image"
+      />
       <span class="logo-text">
-        <strong>مرکز مشاوره</strong>
+        <strong>مرکز مشاوره تخصصی همراه</strong>
         <small>همراه شما در مسیر زندگی</small>
       </span>
     </a>
@@ -94,7 +98,7 @@ const menuItems = [
     flex-shrink: 0;
   }
 
-  .logo-icon {
+  /*.logo-icon {
     width: 45px;
     height: 45px;
     display: grid;
@@ -104,6 +108,13 @@ const menuItems = [
     color: var(--color-primary);
     font-size: 23px;
     font-weight: 800;
+  }*/
+
+  .logo-image {
+    width: 52px;
+    height: 52px;
+    object-fit: contain;
+    flex-shrink: 0;
   }
 
   .logo-text {
@@ -115,6 +126,7 @@ const menuItems = [
   .logo-text strong {
     font-size: 16px;
     font-weight: 700;
+    white-space: nowrap;
   }
 
   .logo-text small {

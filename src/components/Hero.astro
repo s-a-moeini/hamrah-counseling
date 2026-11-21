@@ -1,4 +1,8 @@
+---
 
+const base = import.meta.env.BASE_URL;
+
+---
 <div id="top"></div>
 <section class="hero">
   <div class="container hero-inner">
@@ -41,7 +45,12 @@
       <div class="visual-background"></div>
 
       <div class="visual-card">
-        <div class="visual-symbol">✳</div>
+        <!--<div class="visual-symbol">✳</div>-->
+        <img
+          src={`${base}/images/logo/logo.webp`}
+          alt="لوگوی مرکز مشاوره تخصصی همراه"
+          class="hero-logo-image"
+        />
         <span>آرامش، از درون آغاز می‌شود</span>
         <div class="visual-line"></div>
         <small>مسیر رشد و شناخت خود</small>
@@ -219,6 +228,13 @@
     color: var(--color-primary);
     font-size: 65px;
     line-height: 1;
+  }
+
+  .hero-logo-image {
+    width: 100px;
+    height: 100px;
+    object-fit: contain;
+    flex-shrink: 0;
   }
 
   .visual-card span {
