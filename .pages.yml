@@ -20,6 +20,16 @@ media:
       - png
       - webp
 
+  - name: articles
+    label: تصاویر مقالات
+    input: public/images/articles
+    output: /images/articles
+    extensions:
+      - jpg
+      - jpeg
+      - png
+      - webp
+
 content:
   - name: consultants
     label: مشاوران
@@ -117,3 +127,35 @@ content:
       - name: sortOrder
         label: ترتیب نمایش
         type: number
+
+
+
+
+  - name: articles
+    label: مقالات
+    type: collection
+    path: src/content/articles
+    format: yaml-frontmatter
+    filename: "{primary}.md"
+    view:
+      primary: title
+      sort: title
+      order: asc
+    fields:
+      - name: title
+        label: عنوان مقاله
+        type: string
+
+      - name: image
+        label: تصویر شاخص
+        type: image
+        options:
+          media: articles
+
+      - name: summary
+        label: خلاصه مقاله
+        type: text
+
+      - name: content
+        label: متن کامل مقاله
+        type: text

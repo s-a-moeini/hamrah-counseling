@@ -1,0 +1,208 @@
+
+---
+import MainLayout from '../../layouts/MainLayout.astro';
+import { getCollection } from 'astro:content';
+
+const base = import.meta.env.BASE_URL;
+
+const articles = (await getCollection('articles')).sort(
+  (a, b) => a.data.title.localeCompare(b.data.title, 'fa')
+);
+
+const getImageUrl = (image?: string) => {
+  if (!image) return '';
+
+  if (image.startsWith('http://') || image.startsWith('https://')) {
+    return image;
+  }
+
+  return `${base.replace(/\/?$/, '/')}${image.replace(/^\/+/, '')}`;
+};
+---
+
+<MainLayout
+  title="مقالات | مرکز مشاوره تخصصی همراه"
+  description="مقالات آموزشی و تخصصی مرکز مشاوره تخصصی همراه"
+>
+  <main class="articles-page">
+    <section class="page-header">
+      <div class="container">
+        <span class="eyebrow">دانش و آگاهی</span>
+        <h1>مقالات آموزشی</h1>
+        <p>مطالب و مقالات تخصصی در حوزه سلامت روان و مشاوره</p>
+      </div>
+    </section>
+
+    <section class="articles-section">
+      <div class="container">
+        {articles.length > 0 ? (
+          <div class="articles-grid">
+            {articles.map((article) => (
+              <a
+                class="article-card"
+                href={`${base}articles/${article.id}/`}
+              >
+                <div class="article-image">
+                  {article.data.image ? (
+                    <img
+                      src={getImageUrl(article.data.image)}
+                      alt={article.data.title}
+                      loading="lazy"
+                    />
+                  ) : (
+                    <div class="image-placeholder">مقاله آموزشی</div>
+                  )}
+                </div>
+
+                <div class="article-content">
+                  <h2>{article.data.title}</h2>
+                  <p>{article.data.summary}</p>
+                  <span class="read-more">ادامه مطلب ←</span>
+                </div>
+              </a>
+            ))}
+          </div>
+        ) : (
+          <div class="empty-state">
+            <h2>هنوز مقاله‌ای منتشر نشده است.</h2>
+            <p>به‌زودی مطالب آموزشی جدید در این بخش قرار می‌گیرند.</p>
+          </div>
+        )}
+      </div>
+    </section>
+  </main>
+</MainLayout>
+
+<style>
+  .articles-page {
+    min-height: 70vh;
+  }
+
+  .container {
+    width: min(1100px, calc(100% - 40px));
+    margin: 0 auto;
+  }
+
+  .page-header {
+    padding: 75px 0;
+    text-align: center;
+    background: var(--color-background);
+  }
+
+  .eyebrow {
+    color: var(--color-primary);
+    font-size: 14px;
+    font-weight: 700;
+  }
+
+  .page-header h1 {
+    margin: 14px 0;
+    font-size: 34px;
+  }
+
+  .page-header p {
+    color: var(--color-muted);
+    line-height: 2;
+  }
+
+  .articles-section {
+    padding: 65px 0 90px;
+  }
+
+  .articles-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 25px;
+  }
+
+  .article-card {
+    overflow: hidden;
+    display: block;
+    color: inherit;
+    text-decoration: none;
+    border: 1px solid #e5eeeb;
+    border-radius: 18px;
+    background: white;
+    transition: transform 0.2s, box-shadow 0.2s;
+  }
+
+  .article-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 12px 35px #153c3a12;
+  }
+
+  .article-image {
+    height: 210px;
+    overflow: hidden;
+    background: #e8f5f2;
+  }
+
+  .article-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .image-placeholder {
+    height: 100%;
+    display: grid;
+    place-items: center;
+    color: var(--color-primary);
+  }
+
+  .article-content {
+    padding: 22px;
+  }
+
+  .article-content h2 {
+    margin: 0 0 12px;
+    font-size: 19px;
+    color: var(--color-primary-dark);
+    line-height: 1.8;
+  }
+
+  .article-content p {
+    color: var(--color-muted);
+    font-size: 14px;
+    line-height: 2;
+  }
+
+  .read-more {
+    display: inline-block;
+    margin-top: 12px;
+    color: var(--color-primary);
+    font-weight: 700;
+    font-size: 14px;
+  }
+
+  .empty-state {
+    padding: 60px 20px;
+    text-align: center;
+    background: var(--color-background);
+    border-radius: 18px;
+  }
+
+  .empty-state p {
+    color: var(--color-muted);
+  }
+
+  @media (max-width: 850px) {
+    .articles-grid {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+  }
+
+  @media (max-width: 550px) {
+    .page-header {
+      padding: 55px 0;
+    }
+
+    .page-header h1 {
+      font-size: 27px;
+    }
+
+    .articles-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>

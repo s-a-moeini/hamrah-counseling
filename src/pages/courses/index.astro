@@ -11,9 +11,12 @@ const courses = (await getCollection('courses')).sort(
 
 const getImageUrl = (image?: string) => {
   if (!image) return '';
-  return image.startsWith('/')
-    ? `${base}${image.slice(1)}`
-    : image;
+
+  if (image.startsWith('http://') || image.startsWith('https://')) {
+    return image;
+  }
+
+  return `${base.replace(/\/?$/, '/')}${image.replace(/^\/+/, '')}`;
 };
 ---
 

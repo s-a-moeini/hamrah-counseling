@@ -45,8 +45,21 @@ const courses = defineCollection({
   }),
 });
 
+const articles = defineCollection({
+  loader: glob({
+    pattern: '**/*.md',
+    base: './src/content/articles',
+  }),
+  schema: z.object({
+    title: z.string(),
+    image: z.string().optional(),
+    summary: z.string(),
+    content: z.string(),
+  }),
+});
 
 export const collections = {
   consultants,
   courses,
+  articles,
 };

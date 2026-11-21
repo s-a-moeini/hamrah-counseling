@@ -5,6 +5,18 @@ import { getCollection } from 'astro:content';
 
 const consultants = (await getCollection('consultants'))
   .sort((a, b) => a.data.sortOrder - b.data.sortOrder);
+
+const base = import.meta.env.BASE_URL;
+
+const getImageUrl = (image?: string) => {
+  if (!image) return '';
+
+  if (image.startsWith('http://') || image.startsWith('https://')) {
+    return image;
+  }
+
+  return `${base.replace(/\/?$/, '/')}${image.replace(/^\/+/, '')}`;
+};
 ---
 
 <MainLayout
@@ -31,14 +43,10 @@ const consultants = (await getCollection('consultants'))
                 <div class="consultant-image">
                   {consultant.data.image ? (
                     <img
-                      src={
-                        consultant.data.image?.startsWith('/')
-                          ? `${import.meta.env.BASE_URL}${consultant.data.image.slice(1)}`
-                          : consultant.data.image
-                      }
-                      alt={consultant.data.name}
-                      loading="lazy"
-                    />
+  src={getImageUrl(consultant.data.image)}
+  alt={consultant.data.name}
+  loading="lazy"
+/>
                   ) : (
                     <div class="image-placeholder">
                       {consultant.data.name.charAt(0)}
