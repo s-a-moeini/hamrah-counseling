@@ -40,7 +40,7 @@ const getImageUrl = (image?: string) => {
             {articles.map((article) => (
               <a
                 class="article-card"
-                href={`${base}articles/${article.id}/`}
+                href={`${base.replace(/\/?$/, '/')}articles/${article.id}/`}
               >
                 <div class="article-image">
                   {article.data.image ? (
