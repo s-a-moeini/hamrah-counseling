@@ -1,5 +1,6 @@
 ---
 name: کارگاه مدیریت استرس
+image: /images/courses/gift_with_craft.webp
 instructor: دکتر سارا احمدی
 instructorBio: دکترای روان‌شناسی، متخصص مهارت‌های زندگی
 topics: |-
