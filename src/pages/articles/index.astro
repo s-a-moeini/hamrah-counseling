@@ -3,21 +3,22 @@
 
 import MainLayout from '../../layouts/MainLayout.astro';
 import { getCollection } from 'astro:content';
-//import articleDates from '../../data/article-dates.json';
+
 
 const base = import.meta.env.BASE_URL;
 
-const articles = (await getCollection('articles')).sort((a, b) => {
-  const dateA = a.data.publishDate
-    ? new Date(`${a.data.publishDate}T00:00:00`).getTime()
-    : 0;
+const articles = (await getCollection('articles'))
+  .sort((a, b) => {
+    const dateA = a.data.publishDate
+      ? new Date(a.data.publishDate).getTime()
+      : 0;
 
-  const dateB = b.data.publishDate
-    ? new Date(`${b.data.publishDate}T00:00:00`).getTime()
-    : 0;
+    const dateB = b.data.publishDate
+      ? new Date(b.data.publishDate).getTime()
+      : 0;
 
-  return dateB - dateA;
-});
+    return dateB - dateA;
+  })
 
 const getImageUrl = (image?: string) => {
   if (!image) return '';
