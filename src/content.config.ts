@@ -52,6 +52,7 @@ const articles = defineCollection({
   }),
   schema: z.object({
     title: z.string(),
+    publishDate: z.string().optional(),
     image: z.string().optional(),
     summary: z.string(),
     content: z.string(),

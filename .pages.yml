@@ -146,6 +146,13 @@ content:
         label: عنوان مقاله
         type: string
 
+      - name: publishDate
+        label: تاریخ انتشار
+        type: date
+        default: ""
+        options:
+          format: yyyy-MM-dd
+
       - name: image
         label: تصویر شاخص
         type: image
